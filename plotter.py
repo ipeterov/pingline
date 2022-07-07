@@ -13,8 +13,9 @@ def plot_interactive(update_interval, show_last_n_minutes, log_file):
     plt.ion()
     plt.show()
 
-    while True:
-        try:
+    print("Starting plotter, press Ctrl+C to finish")
+    try:
+        while True:
             ax.clear()
             df = read_csv(log_file, sep=";", decimal=",")
             df["datetime"] = to_datetime(df["timestamp"], unit="s")
@@ -28,9 +29,8 @@ def plot_interactive(update_interval, show_last_n_minutes, log_file):
 
             plt.gcf().canvas.draw_idle()
             plt.gcf().canvas.start_event_loop(update_interval)
-        except KeyboardInterrupt:
-            print("Stopping")
-            break
+    except KeyboardInterrupt:
+        print("Finishing plotter")
 
 
 def plot(log_file):
