@@ -23,7 +23,11 @@ def recorder(interval, router_host, internet_host, log_file):
         {"router": router_host, "internet": internet_host},
         log_file,
     )
-    recorder_.start()
+    click.echo("Starting recorder, press Ctrl+C to finish")
+    try:
+        recorder_.start()
+    except KeyboardInterrupt:
+        click.echo("Finishing recorder")
 
 
 @click.command(help="Explore recorded ping data")
@@ -34,10 +38,14 @@ def recorder(interval, router_host, internet_host, log_file):
 @click.option("--log-file", default="ping_log.csv")
 @click.option("--interactive", is_flag=True, help="Auto refresh the graph?")
 def plotter(interval, last_n_minutes, log_file, interactive):
-    if interactive:
-        plot_interactive(interval, last_n_minutes, log_file)
-    else:
-        plot(log_file)
+    click.echo("Starting plotter, press Ctrl+C to finish")
+    try:
+        if interactive:
+            plot_interactive(interval, last_n_minutes, log_file)
+        else:
+            plot(log_file)
+    except KeyboardInterrupt:
+        click.echo("Finishing plotter")
 
 
 @click.command(help="Permanently remove the log file with recording data")

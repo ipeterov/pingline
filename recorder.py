@@ -64,9 +64,5 @@ class Recorder:
             time.sleep(self.interval)
 
     def start(self):
-        print("Starting recorder, press Ctrl+C to finish")
-        try:
-            with open(self.log_file, "a") as ping_log:
-                self.ping_loop(ping_log)
-        except KeyboardInterrupt:
-            print("Finishing recorder")
+        with open(self.log_file, "a") as ping_log:
+            self.ping_loop(ping_log)
