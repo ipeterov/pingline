@@ -29,4 +29,4 @@ dependencies = [
 "Bug Tracker" = "https://github.com/ipeterov/pingline/issues"
 
 [project.scripts]
-pingline = "cli:cli"
+pingline = "src.cli:cli"

@@ -3,8 +3,8 @@
 import click
 import os
 
-from recorder import Recorder
-from plotter import plot, plot_interactive
+from .recorder import Recorder
+from .plotter import plot, plot_interactive
 
 
 @click.group()
