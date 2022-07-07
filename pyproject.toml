@@ -30,3 +30,15 @@ dependencies = [
 
 [project.scripts]
 pingline = "src.cli:cli"
+
+[tool.poetry]
+name = "pingline"
+version = "0"
+description = "A small tool for pinging multiple hosts at once and exploring the data"
+authors = ["Ilia Peterov <ipeterov1@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+matplotlib = "3.5.2"
+pandas = "1.4.3"
+click = "8.1.3"
