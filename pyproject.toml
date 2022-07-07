@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pingline"
-version = "0.0.4"
+version = "0.0.6"
 authors = [
   { name="Ilia Peterov", email="ipeterov1@gmail.com" },
 ]
